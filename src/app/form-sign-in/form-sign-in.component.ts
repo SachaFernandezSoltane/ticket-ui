@@ -20,6 +20,8 @@ export class FormSignInComponent {
   }
 
   onSubmit() {
+    console.log(this.email);
+    console.log(this.password);
     this.authService.login(this.email, this.password).subscribe(
       response => {
         // Gérer la réponse de l'API (par exemple, stocker le token d'authentification)
