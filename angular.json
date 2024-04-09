@@ -35,6 +35,7 @@
             ],
             "scripts": []
           },
+          
           "configurations": {
             "production": {
               "budgets": [
@@ -69,7 +70,11 @@
               "buildTarget": "ticker-ui:build:development"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "development",
+          "options": {
+            "buildTarget": "ticker-ui:build",
+            "proxyConfig": "src/proxy.conf.json"
+          }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
@@ -96,6 +101,18 @@
             ],
             "scripts": []
           }
+        }
+      }
+    }
+  },
+  "cli": {
+    "analytics": false,
+    "architect": {
+      "serve": {
+        "builder": "@angular-devkit/build-angular:dev-server",
+        "options": {
+          "browserTarget": "ticket-ui:build",
+          "proxyConfig": "src/proxy.conf.json"
         }
       }
     }
