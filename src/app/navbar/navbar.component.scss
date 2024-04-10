@@ -13,16 +13,18 @@ body {
 }
 
 nav {
-    background-color: #181717;
-
+  background-color: #181717;
   padding: 5px 5%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
     rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-  z-index: 1;
+  position: relative; /* Assurez-vous que la position est relative pour que le z-index fonctionne */
+  z-index: 999; /* Assurez-vous que le z-index est supérieur à celui des autres éléments pour être en premier plan */
+  border-bottom: 0.5px solid white; /* Ajoute une bordure blanche de 1 pixel en dessous de la barre de navigation */
 }
+
 nav .logo {
   display: flex;
   align-items: center;
