@@ -8,5 +8,4 @@ import { Component } from '@angular/core';
   styleUrl: './sidebar-navigation.component.scss'
 })
 export class SidebarNavigationComponent {
-
 }

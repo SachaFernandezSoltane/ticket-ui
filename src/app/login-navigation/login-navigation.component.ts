@@ -4,6 +4,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 import { NgIf } from '@angular/common';
+import * as constantNav from '../const/nav';
 
 @Component({
   selector: 'app-menu-navigation',
@@ -14,24 +15,17 @@ import { NgIf } from '@angular/common';
 })
 export class MenuNavigationComponent {
 
+  utilisateurConnecte: boolean = false; 
+
   constructor(private authService: AuthService, private router: Router) { 
   }
 
-  
-  utilisateurConnecte: boolean = false; // Assurez-vous d'initialiser cette variable selon l'état de connexion de l'utilisateur
-
   estConnecte(): boolean {
-    if(this.authService.getToken()){
-      return true;
-    }else{
-      return false;
-    }
+    return !!this.authService.getToken(); 
   }
+  
 
   deconnexion(): void {
-    // Code pour gérer la déconnexion de l'utilisateur
-
-    // Redirection vers "/logout"
-    this.router.navigate(['/logout']);
+    this.router.navigate([constantNav.logout]);
   }
 }

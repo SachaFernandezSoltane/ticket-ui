@@ -3,6 +3,7 @@ import { NavbarComponent } from '../navbar/navbar.component';
 import { SidebarNavigationComponent } from '../sidebar-navigation/sidebar-navigation.component';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
+import * as constantNav from '../const/nav';
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -17,8 +18,7 @@ export class HomeComponent {
   ngOnInit(): void {
     // Vérifier si l'utilisateur est déjà connecté lors de l'initialisation du composant
     if (!this.authService.getToken()) {
-      // Rediriger l'utilisateur vers la page principale
-      this.router.navigateByUrl('/login');
+      this.router.navigateByUrl(constantNav.login);
     }
   }
 }

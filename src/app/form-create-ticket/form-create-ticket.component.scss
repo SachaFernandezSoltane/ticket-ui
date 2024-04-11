@@ -17,12 +17,16 @@
     color: #5469d4;
     text-decoration: unset;
   }
+  .border-form{
+    border: 1px solid rgb(206, 206, 206);
+  }
   .login-root {
       background: #fff;
       display: flex;
       width: 100%;
       min-height: 100vh;
       overflow: hidden;
+      border: 2px solid black;
   }
   .loginbackground {
       min-height: 692px;

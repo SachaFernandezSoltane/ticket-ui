@@ -3,6 +3,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
 import { MenuNavigationComponent } from '../login-navigation/login-navigation.component';
 import { Router } from '@angular/router';
+import * as constantNav from '../const/nav';
 
 @Component({
   selector: 'app-navbar',
@@ -18,13 +19,13 @@ export class NavbarComponent {
     // Code pour gérer la déconnexion de l'utilisateur
 
     // Redirection vers "/logout"
-    this.router.navigate(['/create-ticket']);
+    this.router.navigate([constantNav.createTicket]);
   }
 
   home(): void {
     // Code pour gérer la déconnexion de l'utilisateur
 
     // Redirection vers "/logout"
-    this.router.navigate(['/home']);
+    this.router.navigate([constantNav.home]);
   }
 }
