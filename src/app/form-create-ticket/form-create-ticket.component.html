@@ -49,24 +49,33 @@
                 <form id="stripe-login">
                   <mat-form-field class="select-status" appearance="outline">
                     <mat-label>Titre du ticket</mat-label>
-                    <input matInput>
+                    <input matInput [(ngModel)]="titreTicket" name="titreTicket">
                   </mat-form-field>
                   <mat-form-field class="select-status" appearance="outline">
                     <mat-label>Sélectionner l'utilisateur</mat-label>
-                    <select matNativeControl required>
-                      <option *ngFor="let user of usersList" [value]="user.id">{{ user.username }}</option>
+                    <select matNativeControl required [(ngModel)]="userTicket" name="userTicket">
+                        <option *ngFor="let user of usersList" [value]="user.id">{{ user.username }}</option>
+                    </select>
+                </mat-form-field>                
+                  <mat-form-field class="select-status" appearance="outline">
+                    <mat-label>Sélectionner le type de ticket</mat-label>
+                    <select matNativeControl required [(ngModel)]="typeTicket" name="typeTicket">
+                      <option>Ticket</option>
+                      <option>Bug</option>
+                      <option>Feature</option>
                     </select>
                   </mat-form-field>
                   <mat-form-field class="select-status" appearance="outline">
                     <mat-label>Sélectionner le status</mat-label>
-                    <select matNativeControl required>
+                    <select matNativeControl required [(ngModel)]="statusTicket" name="statusTicket">
                       <option *ngFor="let status of statusList" [value]="status.id">{{ status.userStatus }}</option>
                     </select>
                   </mat-form-field>
                   <mat-form-field class="full-width" appearance="outline">
                     <mat-label>Description</mat-label>
-                    <textarea matInput placeholder="Que l'inspiration vous guide..."></textarea>
+                    <textarea matInput placeholder="Que l'inspiration vous guide..." [(ngModel)]="descriptionTicket" name="descriptionTicket"></textarea>
                   </mat-form-field>
+                  <button mat-flat-button color="primary" class="submit-button" (click)="submit()">Créer le ticket</button>                
                 </form>
               </div>
             </div>

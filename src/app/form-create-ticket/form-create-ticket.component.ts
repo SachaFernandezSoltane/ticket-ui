@@ -11,17 +11,31 @@ import { UserData } from '../interfaces/user';
 import { StatusData } from '../interfaces/status';
 import { Router } from '@angular/router';
 import { root } from '../const/nav';
+import {MatIconModule} from '@angular/material/icon';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatButtonModule} from '@angular/material/button';
+import { TicketService } from '../ticket.service';
+import { TicketData } from '../interfaces/ticket';
+import * as constantes from '../const/object';
+
 @Component({
   selector: 'app-form-create-ticket',
   standalone: true,
-  imports: [FormsModule, MatFormFieldModule, MatInputModule,NavbarComponent,NgFor],
+  imports: [FormsModule, MatFormFieldModule, MatInputModule,NavbarComponent,NgFor,MatButtonModule, MatDividerModule, MatIconModule],
   templateUrl: './form-create-ticket.component.html',
   styleUrl: './form-create-ticket.component.scss'
 })
 export class FormCreateTicketComponent {
   statusList: StatusData[] = []; 
   usersList: UserData[] = [];
-  constructor(private http: HttpClient,private statusService: StatusService,private authService:AuthService,private router:Router) { 
+
+  titreTicket: string = ''; 
+  userTicket: number = 0; 
+  typeTicket: string = ''; 
+  statusTicket:number = 0;
+  descriptionTicket:string = '';
+
+  constructor(private http: HttpClient,private statusService: StatusService,private authService:AuthService,private router:Router,private ticketService:TicketService ) { 
   }
   
   ngOnInit(){
@@ -42,6 +56,24 @@ export class FormCreateTicketComponent {
     this.authService.getAllUsers().subscribe(
       (response) => {
         this.usersList = response; 
+      },
+      (error) => {
+        console.error("Erreur :", error);
+      }
+    );
+  }
+
+  submit(): void{
+    const newTicket: TicketData = {
+      [constantes.TICKET_TITRE]: this.titreTicket,
+      [constantes.TICKET_USER]: this.userTicket,
+      [constantes.TICKET_TYPE]: this.typeTicket,
+      [constantes.TICKET_STATUS]: this.statusTicket,
+      [constantes.TICKET_DESCRIPTION]: this.descriptionTicket
+    };
+    this.ticketService.createTicket(newTicket).subscribe(
+      (response) => {
+        console.error("Response :", response);
       },
       (error) => {
         console.error("Erreur :", error);
