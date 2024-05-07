@@ -67,11 +67,10 @@ export class FormCreateTicketComponent {
     const newTicket: TicketData = {
       [constantes.TICKET_TITRE]: this.titreTicket,
       [constantes.TICKET_USER]: this.userTicket,
-      [constantes.TICKET_TYPE]: this.typeTicket,
       [constantes.TICKET_STATUS]: this.statusTicket,
       [constantes.TICKET_DESCRIPTION]: this.descriptionTicket
     };
-    this.ticketService.createTicket(newTicket).subscribe(
+    this.ticketService.createTicket(newTicket,this.typeTicket).subscribe(
       (response) => {
         console.error("Response :", response);
       },

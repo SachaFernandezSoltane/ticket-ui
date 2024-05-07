@@ -4,11 +4,13 @@ import { LogoutComponent } from './logout/logout.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { FormCreateTicketComponent } from './form-create-ticket/form-create-ticket.component';
+import { ViewTicketsComponent } from './view-tickets/view-tickets.component';
 
 export const routes: Routes = [
   { path: 'login', component: FormSignInComponent},
   { path: 'logout', component: LogoutComponent},
   { path: 'home', component: HomeComponent},
   { path: 'create-ticket', component: FormCreateTicketComponent},
+  { path: 'view-tickets', component: ViewTicketsComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full' },
 ];

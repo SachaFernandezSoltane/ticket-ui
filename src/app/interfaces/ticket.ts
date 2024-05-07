@@ -1,7 +1,14 @@
 export interface TicketData {
     titreTicket: string;
     userTicket: number;
-    typeTicket: string;
     statusTicket: number;
+    descriptionTicket: string;
+  }
+
+  export interface TicketDataDisplay {
+    idTicket:number|undefined;
+    titreTicket: string;
+    userTicket: number|undefined;
+    statusTicket: number|undefined;
     descriptionTicket: string;
   }

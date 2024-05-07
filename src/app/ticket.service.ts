@@ -3,21 +3,35 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { StatusData } from './interfaces/status';
 import * as constants from './const/service';
-import { TicketData } from './interfaces/ticket';
+import { TicketData, TicketDataDisplay } from './interfaces/ticket';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TicketService {
 
-  private apiUrl = 'http://localhost:8090/ticket';
+  private apiUrlTicket = 'http://localhost:8090/ticket';
+  private apiUrlBug = 'http://localhost:8090/bug'
+  private apiUrlFeature = 'http://localhost:8090/feature';
+
   
   constructor(private http: HttpClient) {}
-  
-  // createTicket(titreTicket:String,userTicket:number,typeTicket:String,statusTicket:number,descriptionTicket:String): Observable<any> {
-  //   return this.http.post<any>(this.apiUrl+constants.newT,{titreTicket,})
-  // }
-  createTicket(Ticket: TicketData): Observable<any> {
-    return this.http.post<any>(this.apiUrl+constants.newT,{Ticket})
+
+  createTicket(Ticket: TicketData,typeTicket:String): Observable<any> {
+    if(typeTicket == 'Ticket'){
+      return this.http.post<any>(this.apiUrlTicket+constants.newT,{Ticket})
+    }else if(typeTicket == 'Bug'){
+      return this.http.post<any>(this.apiUrlBug+constants.newT,{Ticket})
+    }else{
+      return this.http.post<any>(this.apiUrlFeature+constants.newT,{Ticket})
+    }
+  }
+
+  getAllTickets(): Observable<TicketDataDisplay[]> {
+    return this.http.get<TicketDataDisplay[]>(this.apiUrlTicket+constants.all)
+  }
+
+  deleteTicket(idTicket:number): any {
+    return this.http.delete(this.apiUrlTicket+'/'+idTicket)
   }
 }

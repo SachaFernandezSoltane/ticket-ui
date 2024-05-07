@@ -22,6 +22,10 @@ export class NavbarComponent {
     this.router.navigate([constantNav.createTicket]);
   }
 
+  viewTickets(): void{
+    this.router.navigate([constantNav.viewTickets]);
+  }
+
   home(): void {
     // Code pour gérer la déconnexion de l'utilisateur
 
