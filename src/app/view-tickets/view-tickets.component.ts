@@ -38,6 +38,7 @@ export class ViewTicketsComponent {
   ngOnInit(){
     this.ticketService.getAllTickets().subscribe((response:any) => {
       console.error("Response :", response);
+      console.log(response)
       response.forEach((element:any) => {
         const newT: TicketDataDisplay = {
           idTicket : undefined,
@@ -97,5 +98,10 @@ export class ViewTicketsComponent {
       console.error("Error deleting ticket:", error);
       // Gérer les erreurs de suppression ici
     });
+  }
+
+  onRowClick(row: any) {
+    console.log("Ligne cliquée : ", row);
+    // Ajoutez ici votre logique pour gérer le clic sur la ligne
   }
 }

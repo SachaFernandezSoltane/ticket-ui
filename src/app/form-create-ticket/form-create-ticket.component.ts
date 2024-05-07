@@ -10,7 +10,7 @@ import { AuthService } from '../auth.service';
 import { UserData } from '../interfaces/user';
 import { StatusData } from '../interfaces/status';
 import { Router } from '@angular/router';
-import { root } from '../const/nav';
+import { home, root } from '../const/nav';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule} from '@angular/material/button';
@@ -72,6 +72,7 @@ export class FormCreateTicketComponent {
     };
     this.ticketService.createTicket(newTicket,this.typeTicket).subscribe(
       (response) => {
+        this.router.navigateByUrl(home);
         console.error("Response :", response);
       },
       (error) => {

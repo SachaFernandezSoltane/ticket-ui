@@ -1,15 +1,15 @@
 <app-navbar></app-navbar>
-<table mat-table [dataSource]="data" class="mat-elevation-z8">
+<table mat-table [dataSource]="data" class="mat-elevation-z8 table">
   <!-- Boucle sur les colonnes existantes -->
   @for (column of displayedColumns.concat('update', 'delete', 'id'); track column) {
     <ng-container [matColumnDef]="column">
       <th mat-header-cell *matHeaderCellDef> 
         {{column === 'delete' ? 'Delete' : column === 'update' ? 'Update' : column}} 
       </th>
-      <td mat-cell *matCellDef="let element"> 
+      <td mat-cell *matCellDef="let element" (click)="onRowClick(element.idTicket)"> 
         <ng-container *ngIf="column === 'update'">
           <button mat-fab color="accent" aria-label="Example icon button with a bookmark icon">
-            <mat-icon>bookmark</mat-icon>
+            <mat-icon>edit</mat-icon>
           </button>
         </ng-container>
         <ng-container *ngIf="column === 'delete'">
@@ -26,5 +26,5 @@
 
   <!-- Mise à jour des rangées -->
   <tr mat-header-row *matHeaderRowDef="columnsToDisplay.concat('update', 'delete')"></tr>
-  <tr mat-row *matRowDef="let row; columns: columnsToDisplay.concat('update', 'delete');"></tr>
+  <tr mat-row *matRowDef="let row; columns: columnsToDisplay.concat('update', 'delete');" ></tr>
 </table>
