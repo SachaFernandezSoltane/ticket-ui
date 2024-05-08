@@ -13,7 +13,7 @@
           </button>
         </ng-container>
         <ng-container *ngIf="column === 'delete'">
-          <button mat-fab color="primary" aria-label="Example icon button with a delete icon" (click)="onDeleteClick(element.idTicket)">
+          <button mat-fab color="primary" aria-label="Example icon button with a delete icon" (click)="openDialog(element.idTicket)">
             <mat-icon>delete</mat-icon>
           </button>
         </ng-container>

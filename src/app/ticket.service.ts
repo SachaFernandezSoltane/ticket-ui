@@ -1,6 +1,6 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, catchError, throwError } from 'rxjs';
 import { StatusData } from './interfaces/status';
 import * as constants from './const/service';
 import { TicketData, TicketDataDisplay } from './interfaces/ticket';
@@ -31,7 +31,25 @@ export class TicketService {
     return this.http.get<TicketDataDisplay[]>(this.apiUrlTicket+constants.all)
   }
 
-  deleteTicket(idTicket:number): any {
-    return this.http.delete(this.apiUrlTicket+'/'+idTicket)
+  deleteTicket(idTicket: any): Observable<any> {
+    return this.http.delete(this.apiUrlTicket + '/' + idTicket)
+      .pipe(
+        catchError(this.handleError) // Gestion des erreurs
+      );
+  }
+
+  private handleError(error: HttpErrorResponse) {
+    if (error.error instanceof ErrorEvent) {
+      // Une erreur côté client s'est produite, gérer ici
+      console.error('An error occurred:', error.error.message);
+    } else {
+      // Le backend a renvoyé un code d'erreur, gérer ici
+      console.error(
+        `Backend returned code ${error.status}, ` +
+        `body was: ${error.error}`);
+    }
+    // Renvoyer une observable avec une erreur conviviale pour l'utilisateur
+    return throwError(
+      'Une erreur s\'est produite. Veuillez réessayer plus tard.');
   }
 }
