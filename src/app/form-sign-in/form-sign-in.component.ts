@@ -4,6 +4,8 @@ import { AuthService } from '../auth.service';
 import { FormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Router } from '@angular/router';
+import * as constantNav from '../const/nav';
+import * as constantService from '../const/service';
 
 @Component({
   selector: 'app-form-sign-in',
@@ -23,28 +25,23 @@ export class FormSignInComponent {
     // Vérifier si l'utilisateur est déjà connecté lors de l'initialisation du composant
     if (this.authService.getToken()) {
       // Rediriger l'utilisateur vers la page principale
-      this.router.navigateByUrl('/');
+      this.router.navigateByUrl(constantNav.root);
     }
   }
 
   onSubmit() {
     this.authService.login(this.email, this.password).subscribe(
       (response) => {
+        console.log(response)
         // Vérifier si la réponse contient un message SUCCESS
-        if (response && response.message === "SUCCESS") {
-          // Gérer la connexion réussie ici
-          console.log("Connexion réussie");
-          this.router.navigateByUrl('/home');
-          // Rediriger l'utilisateur, afficher un message de succès, etc.
+        if (response && response.message === constantService.success) {
+          this.router.navigateByUrl(constantNav.home);
         } else {
           console.error("Réponse de connexion invalide :", response);
-          // Afficher un message d'erreur générique ou effectuer une autre action en cas de réponse invalide
         }
       },
       (error) => {
         console.error("Erreur lors de la connexion :", error);
-        // Gérer les erreurs de la requête HTTP ici
-        // Afficher un message d'erreur à l'utilisateur, nettoyer les champs de formulaire, etc.
       }
     );
   }

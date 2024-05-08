@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Responsive Navbar</title>
-  </head>
-  <body>
+
     <nav>
       <div class="logo">
         <img src="assets/img/Logo64x64.png" alt="logo" />
@@ -14,41 +6,18 @@
       </div>
       <ul>
         <li>
-          <a href="#" class="nav_link">Home</a>
+          <button mat-button class="nav_link" (click)="home()">Home</button>
         </li>
         <li>
-          <a href="#" class="nav_link">New Tickets</a>
+          <button mat-button class="nav_link" (click)="newTicket()">New Ticket</button>
         </li>
         <li>
-          <a href="#" class="nav_link">View Tickets</a>
+          <button mat-button class="nav_link" (click)="viewTickets()">View Tickets</button>
         </li>
         <li>
-          <a href="#" class="nav_link">Login</a>
+          <app-menu-navigation></app-menu-navigation>
         </li>
       </ul>
-      <div class="hamburger">
-        <span class="line"></span>
-        <span class="line"></span>
-        <span class="line"></span>
-      </div>
     </nav>
-    <div class="menubar">
-      <ul>
-        <li>
-          <a href="#">Home</a>
-        </li>
-        <li>
-          <a href="#">Services</a>
-        </li>
-        <li>
-          <a href="#">Blog</a>
-        </li>
-        <li>
-          <a href="#">Contact Us</a>
-        </li>
-      </ul>
-    </div>
-
     <script src="script.js"></script>
-  </body>
-</html>
+

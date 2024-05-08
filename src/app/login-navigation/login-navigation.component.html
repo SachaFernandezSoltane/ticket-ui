@@ -1,0 +1,14 @@
+<!-- Si l'utilisateur est connecté -->
+<li *ngIf="estConnecte()">
+    <button mat-button [matMenuTriggerFor]="menu" class="nav_link">Account</button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>Change settings</button>
+      <button mat-menu-item (click)="deconnexion()">Logout</button>
+    </mat-menu>
+  </li>
+  
+  <!-- Si l'utilisateur n'est pas connecté -->
+  <li *ngIf="!estConnecte()">
+    <button mat-button class="nav_link">Login</button>
+  </li>
+  
