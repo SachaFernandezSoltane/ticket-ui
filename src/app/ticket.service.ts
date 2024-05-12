@@ -31,11 +31,19 @@ export class TicketService {
     return this.http.get<TicketDataDisplay[]>(this.apiUrlTicket+constants.all)
   }
 
+  getOneTicket(idTicket:string|null): Observable<any> {
+    return this.http.get<any>(this.apiUrlTicket + '/' + idTicket)
+  }
+
   deleteTicket(idTicket: any): Observable<any> {
     return this.http.delete(this.apiUrlTicket + '/' + idTicket)
       .pipe(
         catchError(this.handleError) // Gestion des erreurs
       );
+  }
+
+  updateTicket(newTicketInformations:any): Observable<any> {
+    return this.http.put<any>(this.apiUrlTicket + '/update',newTicketInformations)
   }
 
   private handleError(error: HttpErrorResponse) {

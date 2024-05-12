@@ -61,14 +61,6 @@
                   </select>
                 </mat-form-field>
                 <mat-form-field class="select-status" appearance="outline">
-                  <mat-label>Sélectionner le type de ticket</mat-label>
-                  <select matNativeControl required [(ngModel)]="typeTicket" name="typeTicket">
-                    <option>Ticket</option>
-                    <option>Bug</option>
-                    <option>Feature</option>
-                  </select>
-                </mat-form-field>
-                <mat-form-field class="select-status" appearance="outline">
                   <mat-label>Sélectionner le status</mat-label>
                   <select matNativeControl required [(ngModel)]="statusTicket" name="statusTicket">
                     <option *ngFor="let status of statusList" [value]="status.id">{{ status.userStatus }}</option>
@@ -79,7 +71,7 @@
                   <textarea matInput placeholder="Que l'inspiration vous guide..." [(ngModel)]="descriptionTicket"
                     name="descriptionTicket"></textarea>
                 </mat-form-field>
-                <button mat-flat-button color="primary" class="submit-button" (click)="submit()">Créer le
+                <button mat-flat-button color="primary" class="submit-button" (click)="updateTicket()">Mettre à jour le
                   ticket</button>
               </form>
             </div>

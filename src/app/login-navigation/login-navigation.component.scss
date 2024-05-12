@@ -1,18 +1,18 @@
 .nav_link {
-    color:rgba(255, 255, 255, 1);
-    font-size:15px;
-    position:relative;
+    color: rgba(255, 255, 255, 1);
+    font-size: 15px;
+    position: relative;
     transition: all 0.4s;
 }
 
 .nav_link:hover {
-    color:#fff;
+    color: #fff;
 }
 
 .nav_link:after {
     content: '';
     height: 2px;
-    width:100%;
+    width: 100%;
     background: rgb(0, 183, 255);
     position: absolute;
     left: 0;

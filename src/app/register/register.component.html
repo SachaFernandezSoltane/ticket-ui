@@ -17,11 +17,11 @@
 		</div>
 		<div class="form-container sign-in-container">
 			<form (submit)="onSubmit()">
-				<h1>Sign in</h1>
+				<h1>Créer un compte</h1>
 				<input type="email" placeholder="Email" [(ngModel)]="email" name="email" required />
+                <input type="text" placeholder="Username" [(ngModel)]="username" name="username" required />
 				<input type="password" placeholder="Password" [(ngModel)]="password" name="password" required />
-				<a href="#">Mot de passe oublié ?</a>
-				<button type="submit">Se connecter</button>
+				<button type="submit">Enregistrer</button>
 			</form>
 		</div>
 
@@ -33,9 +33,9 @@
 					<button class="ghost" id="signIn">Sign In</button>
 				</div>
 				<div class="overlay-panel overlay-right">
-					<h1>Salutation !</h1>
-					<p>Remplissez le formulaire et c'est parti !</p>
-					<button class="ghost" id="signUp" (click)="onRegister()">Créer votre compte</button>
+					<h1>Welcome Back!</h1>
+					<p>Tu y es presque !</p>
+					<button class="ghost" id="signUp" (click)="onLogin()">Se connecter</button>
 				</div>
 			</div>
 		</div>
