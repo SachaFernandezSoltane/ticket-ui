@@ -20,20 +20,25 @@ nav {
   align-items: center;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
     rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-  position: relative; /* Assurez-vous que la position est relative pour que le z-index fonctionne */
-  z-index: 999; /* Assurez-vous que le z-index est supérieur à celui des autres éléments pour être en premier plan */
-  border-bottom: 0.5px solid white; /* Ajoute une bordure blanche de 1 pixel en dessous de la barre de navigation */
+  position: relative;
+  /* Assurez-vous que la position est relative pour que le z-index fonctionne */
+  z-index: 999;
+  /* Assurez-vous que le z-index est supérieur à celui des autres éléments pour être en premier plan */
+  border-bottom: 0.5px solid white;
+  /* Ajoute une bordure blanche de 1 pixel en dessous de la barre de navigation */
 }
 
 nav .logo {
   display: flex;
   align-items: center;
 }
+
 nav .logo img {
   height: 25px;
   width: auto;
   margin-right: 10px;
 }
+
 nav .logo h1 {
   margin-top: 15px;
   font-size: 1.5rem;
@@ -47,9 +52,11 @@ nav ul {
   list-style: none;
   display: flex;
 }
+
 nav ul li {
   margin-left: 1.5rem;
 }
+
 nav ul li a {
   text-decoration: none;
   color: #cacaca;
@@ -60,29 +67,29 @@ nav ul li a {
 }
 
 .nav_link {
-    color:rgba(255, 255, 255, 0.75);
-    font-size:15px;
-    position:relative;
-    transition: all 0.4s;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 15px;
+  position: relative;
+  transition: all 0.4s;
 }
 
 .nav_link:hover {
-    color:#fff;
+  color: #fff;
 }
 
 .nav_link:after {
-    content: '';
-    height: 2px;
-    width:100%;
-    background: rgb(0, 183, 255);
-    position: absolute;
-    left: 0;
-    bottom: -8px;
-    opacity: 0;
+  content: '';
+  height: 2px;
+  width: 100%;
+  background: rgb(0, 183, 255);
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  opacity: 0;
 }
 
 .nav_link:hover::after {
-    opacity: 1;
+  opacity: 1;
 }
 
 .hamburger {
@@ -98,6 +105,7 @@ nav ul li a {
   margin: 7px auto;
   transition: all 0.3s ease-in-out;
 }
+
 .hamburger-active {
   transition: all 0.3s ease-in-out;
   transition-delay: 0.6s;
@@ -135,6 +143,7 @@ nav ul li a {
   transition: all 0.5s ease-in;
   z-index: 2;
 }
+
 .active {
   left: 0;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
@@ -144,6 +153,7 @@ nav ul li a {
   padding: 0;
   list-style: none;
 }
+
 .menubar ul li {
   margin-bottom: 32px;
 }
@@ -160,10 +170,12 @@ nav ul li a {
 .menubar ul li a:hover {
   background-color: #f5f5f5;
 }
+
 @media screen and (max-width: 790px) {
   .hamburger {
     display: block;
   }
+
   nav ul {
     display: none;
   }

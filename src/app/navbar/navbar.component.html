@@ -1,23 +1,28 @@
+<nav>
+  <div class="logo">
+    <img src="assets/img/Logo64x64.png" alt="logo" />
+    <h1>Ticket Master</h1>
+  </div>
+  <ul>
+    <li>
+      <button mat-button class="nav_link" (click)="newTicket()">Nouveau ticket</button>
+    </li>
 
-    <nav>
-      <div class="logo">
-        <img src="assets/img/Logo64x64.png" alt="logo" />
-        <h1>Ticket Master</h1>
-      </div>
-      <ul>
-        <li>
-          <button mat-button class="nav_link" (click)="home()">Home</button>
-        </li>
-        <li>
-          <button mat-button class="nav_link" (click)="newTicket()">New Ticket</button>
-        </li>
-        <li>
-          <button mat-button class="nav_link" (click)="viewTickets()">View Tickets</button>
-        </li>
-        <li>
-          <app-menu-navigation></app-menu-navigation>
-        </li>
-      </ul>
-    </nav>
-    <script src="script.js"></script>
+    <li *ngIf="estAdmin()">
+      <button mat-button class="nav_link" (click)="viewTickets()">Voir les tickets</button>
+    </li>
 
+    <li *ngIf="!estAdmin()">
+      <button mat-button class="nav_link" (click)="viewTicketsUsers()">Voir les tickets</button>
+    </li>
+
+    <li *ngIf="!estAdmin()">
+      <button mat-button class="nav_link" (click)="viewMyTickets()">Voir mes tickets</button>
+    </li>
+
+    <li>
+      <app-menu-navigation></app-menu-navigation>
+    </li>
+  </ul>
+</nav>
+<script src="script.js"></script>

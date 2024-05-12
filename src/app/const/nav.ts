@@ -1,8 +1,10 @@
-// constants.ts
-
-export const home = '/home';
 export const root = '/';
 export const login = '/login';
+export const newU = '/new';
 export const logout = '/logout';
 export const createTicket = '/create-ticket';
 export const viewTickets = '/view-tickets';
+export const viewMyTickets = '/view-my-tickets';
+export const viewTicketsUsers = '/view-tickets-users';
+export const detailsTickets = '/details-ticket'
+export const register = '/register'
